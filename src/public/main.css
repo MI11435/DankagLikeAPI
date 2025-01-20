@@ -72,13 +72,13 @@ th.sortable.sorted-desc .sort-arrow {
 }
 
 .diff {
-  min-width: 100px;
-  min-height: 30px;
-  max-width: 30px;
-  max-height: 30px;
+  min-width: 0px;
+  /*min-height: 30px;*/
+  max-width: 200px;
+  max-height: 300px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   color: #ffffff;
   gap: 0;
 }
