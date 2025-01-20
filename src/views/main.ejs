@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | DankaguLike charts</title>
+    <title>ホーム | ダンカグライクMint鯖</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
@@ -14,12 +14,12 @@
   <body>
     <div class="container mt-5 px-4">
       <div class="title-container">
-        <h1 class="title">DankaguLike charts</h1>
+        <h1 class="title">ダンカグライク　Mint鯖</h1>
         <div class="search-container">
           <div class="select search-options">
             <select id="searchBy" class="select">
-              <option value="name">By Name</option>
-              <option value="publisher">By Publisher</option>
+              <option value="name"><p>タイトル名</p><p>(By Name)</p></option>
+              <option value="publisher"><p>製作者</p><p>(By Publisher)</p></option>
             </select>
           </div>
           <input
@@ -39,23 +39,23 @@
           <thead>
             <tr>
               <th class="sortable">ID <span class="sort-arrow"></span></th>
-              <th class="sortable">Type <span class="sort-arrow"></span></th>
-              <th class="sortable">Title <span class="sort-arrow"></span></th>
+              <th class="sortable"><p>タイプ</p><p>(Type)</p> <span class="sort-arrow"></span></th>
+              <th class="sortable"><p>タイトル</p><p>(Title)</p> <span class="sort-arrow"></span></th>
               <th class="sortable">
-                Publisher <span class="sort-arrow"></span>
+                <p>製作者</p><p>(Publisher)</p> <span class="sort-arrow"></span>
               </th>
               <th class="sortable numeric">
-                Date <span class="sort-arrow"></span>
+                <p>日付</p><p>(Date)</p> <span class="sort-arrow"></span>
               </th>
               <th class="sortable numeric">
-                Downloads <span class="sort-arrow"></span>
+                <p>ダウンロード数</p><p>(Downloads)</p> <span class="sort-arrow"></span>
               </th>
               <th class="sortable numeric">
-                Score <span class="sort-arrow"></span>
+                <p>評価</p><p>(Score)</p> <span class="sort-arrow"></span>
               </th>
-              <th>Difficulty</th>
+              <th><p>難易度</p><p>(Difficulty)</p></th>
               <th class="sortable">Lua <span class="sort-arrow"></span></th>
-              <th>Link</th>
+              <th><p>リンク</p><p>(Link)</p></th>
             </tr>
           </thead>
           <tbody>
@@ -63,9 +63,9 @@
             <tr>
               <td><%= content.id %></td>
               <td>
-                <%= content.contentType === 0 ? "Songs" : content.contentType
-                === 1 ? "NoteSkins" : content.contentType === 2 ? "SoundEffects"
-                : content.contentType === 3 ? "GlobalLua" : "Unknown" %>
+                <%= content.contentType === 0 ? "曲\nSongs" : content.contentType
+                === 1 ? "\nNoteSkins" : content.contentType === 2 ? "サウンドエフェクト\nSoundEffects"
+                : content.contentType === 3 ? "GlobalLua" : "その他\nUnknown" %>
               </td>
               <td><%= content.title %></td>
               <td><%= content.publisher %></td>
@@ -74,27 +74,37 @@
               <td><%= content.voteAverageScore %></td>
               <td class="difficulty">
                 <span class="diff" id="diff-easy">
-                  <% if (content.songInfo.difficulties[0] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[0] === -1) { %>X<% } 
+                  else if (content.songInfo.difficulties[0] === 0) { %><% }
+                  else
                   { %><%= content.songInfo.difficulties[0] %><% } %>
                 </span>
                 <span class="diff" id="diff-normal">
-                  <% if (content.songInfo.difficulties[1] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[1] === -1) { %>X<% }
+                  else if (content.songInfo.difficulties[1] === 0) { %><% }
+                  else
                   { %><%= content.songInfo.difficulties[1] %><% } %>
                 </span>
                 <span class="diff" id="diff-hard">
-                  <% if (content.songInfo.difficulties[2] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[2] === -1) { %>X<% } 
+                  else if (content.songInfo.difficulties[2] === 0) { %><% }
+                  else
                   { %><%= content.songInfo.difficulties[2] %><% } %>
                 </span>
                 <span class="diff" id="diff-extra">
-                  <% if (content.songInfo.difficulties[3] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[3] === -1) { %>X<% } 
+                  else if (content.songInfo.difficulties[3] === 0) { %><% }
+                  else
                   { %><%= content.songInfo.difficulties[3] %><% } %>
                 </span>
                 <span class="diff" id="diff-lunatic">
-                  <% if (content.songInfo.difficulties[4] === -1) { %>X<% } else
+                  <% if (content.songInfo.difficulties[4] === -1) { %>X<% } 
+                  else if (content.songInfo.difficulties[4] === 0) { %><% }
+                  else
                   { %><%= content.songInfo.difficulties[4] %><% } %>
                 </span>
               </td>
-              <td><%= content.songInfo.hasLua ? "Yes" : "No" %></td>
+              <td><%= content.songInfo.hasLua ? "有\nYes" : "無\nNo" %></td>
               <td>
                 <button
                   class="button btn-download is-link"
