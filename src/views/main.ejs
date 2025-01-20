@@ -63,9 +63,9 @@
             <tr>
               <td><%= content.id %></td>
               <td>
-                <%= content.contentType === 0 ? "曲 \nSongs" : content.contentType
-                === 1 ? "ノーツスキン\nNoteSkins" : content.contentType === 2 ? "サウンドエフェクト\nSoundEffects"
-                : content.contentType === 3 ? "GlobalLua" : "その他\nUnknown" %>
+                <%= content.contentType === 0 ? "曲 \n(Songs)" : content.contentType
+                === 1 ? "ノーツスキン\n(NoteSkins)" : content.contentType === 2 ? "サウンドエフェクト\n(SoundEffects)"
+                : content.contentType === 3 ? "GlobalLua" : "その他\n(Unknown)" %>
               </td>
               <td><%= content.title %></td>
               <td><%= content.publisher %></td>
