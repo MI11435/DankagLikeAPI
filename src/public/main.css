@@ -125,9 +125,9 @@ th.sortable.sorted-desc .sort-arrow {
 }
 
 .diff {
-  min-width: 30px;
+  min-width: 0px;
   min-height: 30px;
-  max-width: 30px;
+  max-width: 300px;
   max-height: 30px;
   display: flex;
   justify-content: center;
