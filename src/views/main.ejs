@@ -113,16 +113,14 @@
               <td><p class="text-unavailable">Unavailable</p></td>
               <% } %>
               <td><%= content.songInfo.hasLua ? "Yes" : "No" %></td>
-              <% if ('<%= content.downloadUrl %>') != nill >
-                <td>
-                  <button
-                    class="button btn-download is-link"
-                    onclick="window.location.href='<%= content.downloadUrl %>'"
-                  >
-                    Download
-                  </button>
-                </td>
-              %>
+              <td>
+                <button
+                  class="button btn-download is-link"
+                  onclick="window.location.href='<%= content.downloadUrl %>'"
+                >
+                  Download
+                </button>
+              </td>
             </tr>
             <% }); %>
           </tbody>
